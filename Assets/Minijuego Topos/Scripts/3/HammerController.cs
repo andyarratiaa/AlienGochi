@@ -5,6 +5,8 @@ public class HammerController : MonoBehaviour
 {
     public Text scoreText;
     public int score;
+    public AudioClip hitSound; // Referencia al sonido de golpe
+    private AudioSource audioSource; // Componente AudioSource
 
     private MoleSpawner ms;
 
@@ -13,6 +15,13 @@ public class HammerController : MonoBehaviour
     {
         score = 0;
         ms = GetComponent<MoleSpawner>();
+        audioSource = GetComponent<AudioSource>(); // Obtener el AudioSource
+
+        // Verificar si el AudioSource no está asignado
+        if (audioSource == null)
+        {
+            Debug.LogError("No se encontró un AudioSource en el GameObject.");
+        }
     }
 
     // Update is called once per frame
@@ -30,6 +39,16 @@ public class HammerController : MonoBehaviour
                 score += 1;
                 scoreText.text = score.ToString();
                 ms.Spawn();
+
+                // Reproducir el sonido de golpe si el AudioSource y el AudioClip están configurados
+                if (audioSource != null && hitSound != null)
+                {
+                    audioSource.PlayOneShot(hitSound); // Reproducir el sonido de golpe
+                }
+                else
+                {
+                    Debug.LogWarning("No se pudo reproducir el sonido de golpe. Asegúrate de que el AudioSource y el AudioClip estén configurados correctamente.");
+                }
             }
         }
     }
