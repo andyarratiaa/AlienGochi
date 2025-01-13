@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class OpenGameObject : MonoBehaviour
 {
-    // Referencia al GameObject que quieres mostrar
+    // Referencia al GameObject que quieres mostrar u ocultar
     public GameObject targetObject;
 
-    // Método para mostrar el GameObject
-    public void ShowGameObject()
+    // Método para alternar el estado del GameObject
+    public void ToggleObject()
     {
         if (targetObject != null)
         {
-            targetObject.SetActive(true); // Activa el GameObject
+            // Cambia el estado activo del GameObject
+            targetObject.SetActive(!targetObject.activeSelf);
         }
         else
         {
