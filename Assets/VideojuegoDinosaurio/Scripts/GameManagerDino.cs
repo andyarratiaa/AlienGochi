@@ -1,11 +1,12 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 [DefaultExecutionOrder(-1)]
-public class GameManager : MonoBehaviour
+public class GameManagerDino : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+    public static GameManagerDino Instance { get; private set; }
 
     public float initialGameSpeed = 5f;
     public float gameSpeedIncrease = 0.1f;
@@ -102,5 +103,4 @@ public class GameManager : MonoBehaviour
 
         hiscoreText.text = Mathf.FloorToInt(hiscore).ToString("D5");
     }
-
 }

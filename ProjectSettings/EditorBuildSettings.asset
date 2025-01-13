@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/LEVEL02.unity
     guid: 05094a0367c455340b52d6d0e2d5da84
+  - enabled: 1
+    path: Assets/Minijuego Topos/Scenes/Topo Sencillo.unity
+    guid: f38eb5df73a903943bca10fea9e5ab0c
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
