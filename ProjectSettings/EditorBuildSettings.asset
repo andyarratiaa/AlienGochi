@@ -17,11 +17,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 59787c93b952bb4429ddfbef3a3ad1a2
-  - enabled: 0
-    path: Assets/Scenes/LEVEL02.unity
-    guid: 05094a0367c455340b52d6d0e2d5da84
   - enabled: 1
-    path: Assets/Minijuego Topos/Scenes/Topo Sencillo.unity
+    path: Assets/Scenes/Topo Sencillo.unity
     guid: f38eb5df73a903943bca10fea9e5ab0c
+  - enabled: 1
+    path: Assets/Scenes/FallingObjects.unity
+    guid: fbcc9c15088e3cc4fa4d75bc4dcbde98
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

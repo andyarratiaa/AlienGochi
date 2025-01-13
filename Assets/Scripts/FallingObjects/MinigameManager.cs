@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class MinigameManager : MonoBehaviour
 {
-
     public int XPosition;
     private int YPosition;
     public GameObject GoodItem;
@@ -11,33 +10,33 @@ public class MinigameManager : MonoBehaviour
     public int Points;
     public int Vidas;
     public GameObject[] HuecosVidas;
+    public GameObject PanelGameOver;
 
     private static MinigameManager singleton;
     public static MinigameManager Singleton => singleton;
     public bool playing;
     private int LifeIndex = 3;
+
     private void Awake()
     {
         if (singleton == null)
         {
-            if (singleton == null)
-            {
-                singleton = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            singleton = this;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
+
     void Start()
     {
         StartCoroutine(WaitHalfASecond());
+        PanelGameOver.SetActive(false);
     }
 
     void FixedUpdate()
     {
-        
     }
 
     public void SpawnObjectRandomly()
@@ -56,20 +55,12 @@ public class MinigameManager : MonoBehaviour
     public bool GoodOrBadItem()
     {
         int randomnumber = Random.Range(0, 10);
-        if (randomnumber <= 7)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return randomnumber <= 7;
     }
 
     public float SetRandomCoords()
     {
-        float randomCoord = Random.Range(-1.5f, -0.9f);
-        return randomCoord;
+        return Random.Range(-1.5f, -0.9f);
     }
 
     public IEnumerator WaitHalfASecond()
@@ -80,18 +71,55 @@ public class MinigameManager : MonoBehaviour
             yield return new WaitForSeconds(0.7f);
         }
     }
-        
 
     public void LoseLife()
     {
         Vidas--;
-        Destroy(HuecosVidas[LifeIndex -1]);
-
+        Destroy(HuecosVidas[LifeIndex - 1]);
         LifeIndex--;
+
         if (Vidas <= 0)
         {
             playing = false;
+            PanelGameOver.SetActive(true);
             Debug.Log("Fin del juego");
         }
     }
+
+    public void RestartGame()
+    {
+        // Reset game variables
+        Points = 0;
+        Vidas = HuecosVidas.Length;
+        LifeIndex = HuecosVidas.Length;
+        playing = true;
+
+        // Reactivate life icons
+        foreach (GameObject vida in HuecosVidas)
+        {
+            if (vida != null)
+            {
+                vida.SetActive(true);
+            }
+        }
+
+        // Hide the Game Over panel
+        PanelGameOver.SetActive(false);
+
+        // Destroy all spawned objects
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("GoodItem"))
+        {
+            Destroy(obj);
+        }
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("BadItem"))
+        {
+            Destroy(obj);
+        }
+
+        // Restart spawning
+        StartCoroutine(WaitHalfASecond());
+
+        Debug.Log("Juego reiniciado");
+    }
 }
+
