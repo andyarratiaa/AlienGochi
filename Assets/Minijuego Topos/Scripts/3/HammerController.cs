@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HammerController : MonoBehaviour
@@ -51,5 +52,11 @@ public class HammerController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ResetGame()
+    { 
+        //score = 0;
+        SceneManager.LoadScene("Topo Sencillo");
     }
 }

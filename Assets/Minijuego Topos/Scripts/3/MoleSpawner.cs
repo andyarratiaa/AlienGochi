@@ -11,6 +11,7 @@ public class MoleSpawner : MonoBehaviour
     public Text gameText;
     public Text countdownText;
     public Button returnToMainButton; // Referencia al botón
+    [SerializeField] private Button resetGameButton;
 
     public AudioClip spawnSound; // Referencia al sonido de spawn
     private AudioSource audioSource; // Componente de AudioSource
@@ -77,6 +78,7 @@ public class MoleSpawner : MonoBehaviour
     {
         // Mostrar el botón para volver al juego principal
         returnToMainButton.gameObject.SetActive(true);
+        resetGameButton.gameObject.SetActive(true);
     }
 
     // Función para regresar al juego principal
