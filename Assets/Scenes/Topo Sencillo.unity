@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9810ca9da61ded34bab03c7be3c9da2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  molePrefab: {fileID: 35766160177746186, guid: 1d1f8c32f279b6749adb443939235403, type: 3}
+  molePrefab: {fileID: 9011487864933186781, guid: 70fa9cbb8f0fc43449534bdd1dd6becf, type: 3}
   spawnPoints:
   - {fileID: 637313689}
   - {fileID: 1903162183}
@@ -495,7 +495,7 @@ MonoBehaviour:
   countdownText: {fileID: 495914851}
   returnToMainButton: {fileID: 2100345947}
   resetGameButton: {fileID: 1591638994}
-  spawnSound: {fileID: 8300000, guid: 8e636c0219b2ced4ebf117b54fb8643a, type: 3}
+  spawnSound: {fileID: 8300000, guid: a441d2545670779489b57906809e4877, type: 3}
 --- !u!114 &450052812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,11 +520,11 @@ AudioSource:
   m_GameObject: {fileID: 450052806}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8e636c0219b2ced4ebf117b54fb8643a, type: 3}
-  m_Resource: {fileID: 8300000, guid: 8e636c0219b2ced4ebf117b54fb8643a, type: 3}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ade2bf8b0e073504ca104aada740914f, type: 2}
+  m_audioClip: {fileID: 8300000, guid: a441d2545670779489b57906809e4877, type: 3}
+  m_Resource: {fileID: 8300000, guid: a441d2545670779489b57906809e4877, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -617,7 +617,7 @@ AudioSource:
   m_GameObject: {fileID: 450052806}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ade2bf8b0e073504ca104aada740914f, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0a9322df43a77524fae7a66de392639f, type: 3}
   m_Resource: {fileID: 8300000, guid: 0a9322df43a77524fae7a66de392639f, type: 3}
   m_PlayOnAwake: 0
@@ -1588,12 +1588,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 6671471773138798564, guid: 39d4cc5b2823d6f41b1ed007637cfde4, type: 3}
+  m_Sprite: {fileID: -370346828, guid: 06d10ab1e1936114f81f9ec491194ebc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.18, y: 2.98}
+  m_Size: {x: 2, y: 2.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
