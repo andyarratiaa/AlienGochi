@@ -11,6 +11,7 @@ public class MinigameManager : MonoBehaviour
     public int Vidas;
     public GameObject[] HuecosVidas;
     public GameObject PanelGameOver;
+    public AlienMovement alienMovement;
 
     private static MinigameManager singleton;
     public static MinigameManager Singleton => singleton;
@@ -82,6 +83,7 @@ public class MinigameManager : MonoBehaviour
         {
             playing = false;
             PanelGameOver.SetActive(true);
+            alienMovement.maxRange = -2f;
             Debug.Log("Fin del juego");
         }
     }

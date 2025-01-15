@@ -8,6 +8,8 @@ public class AlienMovement : MonoBehaviour
     public SpriteRenderer renderer;
     public float initialXPosition;
     public float x;
+    public bool isFacingRight;
+    public GameObject pivotController;
     void Start()
     {
         initialXPosition = -alien.transform.position.x;
@@ -21,17 +23,25 @@ public class AlienMovement : MonoBehaviour
 
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && (alien.transform.position.x + initialXPosition) > -maxRange)
         {
-            entradaHorizontal = -1; 
+            entradaHorizontal = -1;
+            isFacingRight = false;
         }
         else if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && (alien.transform.position.x + initialXPosition) < maxRange)
         {
-            entradaHorizontal = 1; 
+            entradaHorizontal = 1;
+            isFacingRight = true;
         }
 
- 
+        FlipSprite(isFacingRight);
         Vector3 movimiento = new Vector3(entradaHorizontal, 0, 0) * speed * Time.deltaTime;
 
  
         transform.Translate(movimiento);
+    }
+
+    public void FlipSprite(bool isFacingRight)
+    {
+
+        renderer.flipX = !isFacingRight;
     }
 }
