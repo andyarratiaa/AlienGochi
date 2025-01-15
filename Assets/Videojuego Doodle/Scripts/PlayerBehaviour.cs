@@ -10,16 +10,19 @@ public class PlayerBehaviour : MonoBehaviour {
 	public float movementSpeed = 10f;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		rb = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		movement = Input.GetAxis("Horizontal") * movementSpeed;
 	}
 
-	void FixedUpdate(){
+	void FixedUpdate()
+	{
 		rb.linearVelocity = new Vector2(movement, rb.linearVelocity.y);
 	}
 }
