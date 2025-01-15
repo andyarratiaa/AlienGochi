@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1a5014283b6b4cac94e692d1f70b1, type: 3}
+  m_Name: Gorritos
+  m_EditorClassIdentifier: 
+  gorros:
+  - nombre: Gorrito1
+    rareza: Normal
+    peso: 50
+    spriteRenderer: {fileID: 1034511067, guid: 1c98119867aef3b42a0f4a5b97024e29, type: 3}
+  - nombre: Gorrito2
+    rareza: Normal
+    peso: 50
+    spriteRenderer: {fileID: -1301228355, guid: 1c98119867aef3b42a0f4a5b97024e29, type: 3}
+  - nombre: Gorrito3
+    rareza: Normal
+    peso: 50
+    spriteRenderer: {fileID: -1143073590, guid: 1c98119867aef3b42a0f4a5b97024e29, type: 3}
+  - nombre: Gorrito4
+    rareza: Raro
+    peso: 35
+    spriteRenderer: {fileID: -1057379672, guid: 1c98119867aef3b42a0f4a5b97024e29, type: 3}
+  - nombre: Gorrito5
+    rareza: Raro
+    peso: 35
+    spriteRenderer: {fileID: -1499610795, guid: 1c98119867aef3b42a0f4a5b97024e29, type: 3}
+  - nombre: Gorrito6
+    rareza: Legendario
+    peso: 15
+    spriteRenderer: {fileID: 1649076703, guid: 1c98119867aef3b42a0f4a5b97024e29, type: 3}
