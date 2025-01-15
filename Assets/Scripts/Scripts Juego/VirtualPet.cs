@@ -14,6 +14,7 @@ public class VirtualPet : MonoBehaviour
     public GameObject cleanObject;
     public GameObject sleepObject;
     public GameObject dirtObject; // Object that appears during cleaning
+    public GameObject gorroObject;
 
     // Animator for character animations
     public Animator characterAnimator;
@@ -60,7 +61,7 @@ public class VirtualPet : MonoBehaviour
         if (health > 0)
         {
             // Gradual reduction, decay rate further reduced
-            health -= healthDecayRate * Time.deltaTime * 1f; // Slow down even more
+            health -= healthDecayRate * Time.deltaTime * 0.6f; // Slow down even more
             healthBar.value = health;
 
             UpdateHealthBarColor();
@@ -106,7 +107,7 @@ public class VirtualPet : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(5, 8)); // Tiempo entre que trancurre la acción
+            yield return new WaitForSeconds(Random.Range(5, 9)); // Tiempo entre que trancurre la acción
 
             // Las acciones
             string[] actions = { "Feed", "Clean", "Sleep" };
@@ -153,7 +154,7 @@ public class VirtualPet : MonoBehaviour
         if (currentAction == action)
         {
             // Recompensa al jugador restaurando salud
-            health = Mathf.Min(health + 5f, 100f);
+            health = Mathf.Min(health + 7f, 100f);
 
             // Control de animación para la acción de alimentar
             if (action == "Feed" && characterAnimator != null)
@@ -190,7 +191,11 @@ public class VirtualPet : MonoBehaviour
         if (characterAnimator != null)
         {
             characterAnimator.SetTrigger("Sleep");
+            gorroObject.SetActive(false);
             yield return new WaitForSeconds(120f); // Duración extendida para la animación de dormir
+            Debug.Log("Se pone el gorro");
+            gorroObject.SetActive(true);
+
         }
     }
 

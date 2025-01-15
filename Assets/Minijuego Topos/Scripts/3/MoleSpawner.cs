@@ -84,6 +84,7 @@ public class MoleSpawner : MonoBehaviour
     // Función para regresar al juego principal
     void ReturnToMainGame()
     {
+        Cursor.visible = true;  // Mostrar el cursor
         SceneManager.LoadScene("LEVEL01"); // Cambia "NombreDeLaEscenaPrincipal" por el nombre de tu escena principal
     }
 }
