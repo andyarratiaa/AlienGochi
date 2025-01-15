@@ -14,6 +14,7 @@ public class VirtualPet : MonoBehaviour
     public GameObject cleanObject;
     public GameObject sleepObject;
     public GameObject dirtObject; // Object that appears during cleaning
+    public GameObject gorroObject;
 
     // Animator for character animations
     public Animator characterAnimator;
@@ -190,7 +191,11 @@ public class VirtualPet : MonoBehaviour
         if (characterAnimator != null)
         {
             characterAnimator.SetTrigger("Sleep");
+            gorroObject.SetActive(false);
             yield return new WaitForSeconds(120f); // Duración extendida para la animación de dormir
+            Debug.Log("Se pone el gorro");
+            gorroObject.SetActive(true);
+
         }
     }
 
