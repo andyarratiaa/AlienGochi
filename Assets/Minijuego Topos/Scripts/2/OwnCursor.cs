@@ -15,4 +15,8 @@ void Start()
         Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = cursorPos;
     }
+    public void MakeCursorVisible()
+    {
+        
+    }
 }

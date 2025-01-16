@@ -14,7 +14,8 @@ public class MoleSpawner : MonoBehaviour
     [SerializeField] private Button resetGameButton;
 
     public AudioClip spawnSound; // Referencia al sonido de spawn
-    private AudioSource audioSource; // Componente de AudioSource
+    //private AudioSource sharedAudioSource; // Componente de AudioSource
+    private static AudioSource sharedAudioSource; //Para todos los moles
 
     private bool gameStarted = false;
 
@@ -25,7 +26,7 @@ public class MoleSpawner : MonoBehaviour
         returnToMainButton.onClick.AddListener(ReturnToMainGame); // Vincular función al botón
 
         // Obtener el componente AudioSource en el mismo GameObject
-        audioSource = GetComponent<AudioSource>();
+        sharedAudioSource = GetComponent<AudioSource>();
 
         StartCoroutine(StartCountdown());
     }
@@ -51,8 +52,22 @@ public class MoleSpawner : MonoBehaviour
         mole.transform.position = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
 
         // Reproducir el sonido de spawn
-        audioSource.PlayOneShot(spawnSound);
+
+        PlaySpawnSound();
+        //sharedAudioSource.PlayOneShot(spawnSound);
     }
+    private void PlaySpawnSound()
+    {
+        if (sharedAudioSource.isPlaying)
+        {
+            sharedAudioSource.Stop(); // Stop the previous sound
+        }
+
+        //sharedAudioSource.clip = spawnSound;
+        sharedAudioSource.PlayOneShot(spawnSound);
+    }
+
+
 
     // Coroutine para la cuenta regresiva inicial
     IEnumerator StartCountdown()
@@ -79,6 +94,7 @@ public class MoleSpawner : MonoBehaviour
         // Mostrar el botón para volver al juego principal
         returnToMainButton.gameObject.SetActive(true);
         resetGameButton.gameObject.SetActive(true);
+        Cursor.visible = true;
     }
 
     // Función para regresar al juego principal

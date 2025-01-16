@@ -9,6 +9,9 @@ public class PlayerBehaviour : MonoBehaviour {
 	float movement = 0f;
 	public float movementSpeed = 10f;
 
+	private float minX = -9.46f; 
+	private float maxX = 9.46f;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -24,5 +27,15 @@ public class PlayerBehaviour : MonoBehaviour {
 	void FixedUpdate()
 	{
 		rb.linearVelocity = new Vector2(movement, rb.linearVelocity.y);
+		if (transform.position.x > maxX)
+		{
+			
+			transform.position = new Vector3(minX, transform.position.y, transform.position.z);
+		}
+		else if (transform.position.x < minX)
+		{
+			
+			transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
+		}
 	}
 }
