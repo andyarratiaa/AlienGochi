@@ -27,10 +27,12 @@ public class VirtualPet : MonoBehaviour
     public Image healthBarFill; // Reference to the fill image of the health bar
 
     // Action logic
-    private string currentAction;
+    public string currentAction;
     private Coroutine actionCoroutine;
     private string lastAction;
     private string secondLastAction;
+
+    public CambiadorDeHabitacion cambiaHabitaciones;
 
     void Start()
     {
@@ -159,8 +161,8 @@ public class VirtualPet : MonoBehaviour
             // Control de animación para la acción de alimentar
             if (action == "Feed" && characterAnimator != null)
             {
+                
                 characterAnimator.SetTrigger("Eat"); // Dispara la animación de comer
-
             }
             else if (action == "Sleep" && characterAnimator != null)
             {

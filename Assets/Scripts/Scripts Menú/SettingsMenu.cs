@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
-
+    public bool isFullScreen;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -38,11 +38,23 @@ public class SettingsMenu : MonoBehaviour
             }
         }
 
-        resolutionsDropdown.AddOptions(options);
-        resolutionsDropdown.value = currentResolutionIndex;
-        resolutionsDropdown.RefreshShownValue();
+        //resolutionsDropdown.AddOptions(options);
+        //resolutionsDropdown.value = currentResolutionIndex;
+        //resolutionsDropdown.RefreshShownValue();
+
+        Screen.SetResolution(1920, 1080, true);
+        isFullScreen = Screen.fullScreen;
     }
 
+    private void Update()
+    {
+        isFullScreen = Screen.fullScreen;
+        
+    }
+    public void ToggleFullScreen()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
+    }
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
